@@ -1,8 +1,6 @@
 import pandas as pd
-def mul_table():
-# Определяем элементы группы S_3
-    elements = ['e', '(12)', '(13)', '(23)', '(123)', '(132)']
-
+import group_elems
+def mul_table(elements):
     # Создаем пустой DataFrame для таблицы умножения
     table = pd.DataFrame(index=elements, columns=elements)
 
@@ -16,4 +14,9 @@ def mul_table():
     # Выводим таблицу умножения
     print(table)
 
-mul_table()
+#print(n=)
+#n=int(input())
+n=3
+elems=group_elems.get_group_elements(n)
+print(elems)
+mul_table(elems)
