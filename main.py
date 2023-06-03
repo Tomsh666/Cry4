@@ -39,8 +39,6 @@ def mul_table(elements):
     for element1 in elements:
         for element2 in elements:
             # Выполняем умножение элементов element1 и element2
-            if element1=='231' and element2=='231':
-                print(1)
             result = compose(element1,element2)
             # Обновляем соответствующую ячейку в таблице
             table.loc[element1, element2] = result
@@ -51,7 +49,7 @@ def mul_table(elements):
 #ввод
 #print(n=)
 #n=int(input())
-n=3
+n=4
 
 #начало проги
 elems=get_group_elements(n)
