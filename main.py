@@ -4,7 +4,6 @@ import itertools
 
 def get_group_elements(n):
     elements = []
-
     # Генерация всех возможных перестановок длиной n
     permutations = list(itertools.permutations(range(1, n + 1)))
 
@@ -15,6 +14,23 @@ def get_group_elements(n):
         elements.append(perm_str)
     return elements
 
+def strtoarr(a):
+    a = list(a)
+    for i in range(0,len(a)):
+        a[i]=int(a[i])
+    return a
+
+def compose(a,b):
+    a = strtoarr(a)
+    b = strtoarr(b)
+    rez=[]
+    for i in range(0,len(a)):
+        #умножение
+        #print(i,'->',b[i],'->',a[b[i]-1])
+        rez.append(a[b[i]-1])
+    return rez
+
+
 def mul_table(elements):
     # Создаем пустой DataFrame для таблицы умножения
     table = pd.DataFrame(index=elements, columns=elements)
@@ -23,7 +39,9 @@ def mul_table(elements):
     for element1 in elements:
         for element2 in elements:
             # Выполняем умножение элементов element1 и element2
-            result = eval(element1+element2)
+            if element1=='231' and element2=='231':
+                print(1)
+            result = compose(element1,element2)
             # Обновляем соответствующую ячейку в таблице
             table.loc[element1, element2] = result
     # Выводим таблицу умножения
