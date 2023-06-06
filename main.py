@@ -67,7 +67,20 @@ def subgroups(table,n):
             resarr.append(gr)
             po+=1
         if po in narr:
-            print(resarr)
+            #print(resarr)
+            rightarr = []
+            leftarr = []
+            for t in range(0,math.factorial(n)):
+                for j in resarr:
+                    rightarr.append(mul(table,j,table.index[t]))
+                    leftarr.append(mul(table,table.index[t],j))
+                if rightarr==leftarr:
+                    print(resarr)
+                    break
+                rightarr.clear()
+                leftarr.clear()
+
+
 
     #print(narr)
 
