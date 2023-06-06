@@ -54,19 +54,22 @@ def mul(table,elem1,elem2):
 
 def subgroups(table,n):
     narr=[]
-    poarr = []
     for i in range(1,math.factorial(n)+1):
         if math.factorial(n)%i==0:
             narr.append(i)
     for i in range(0,math.factorial(n)):
         gr=table.index[i]
+        resarr=[]
+        resarr.append(gr)
         po = 1
         while gr!='123' and po<=math.factorial(n):
             gr=mul(table,gr,gr)
+            resarr.append(gr)
             po+=1
-        poarr.append(po)
-    print(narr)
-    print(poarr)
+        if po in narr:
+            print(resarr)
+
+    #print(narr)
 
 
 #ввод
