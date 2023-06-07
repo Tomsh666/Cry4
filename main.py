@@ -95,7 +95,7 @@ n=int(input())
 
 #начало проги
 elems=get_group_elements(n)
-print('Элементы S_{l}'.format(l=n),elems)
+print('Элементы S_{l}:'.format(l=n),elems)
 print('Таблица умножения элементов S_{l}:'.format(l=n))
 table=mul_table(elems)
 subgroups(table,n)
