@@ -53,6 +53,7 @@ def mul(table,elem1,elem2):
     return table.at[elem1,elem2]
 
 def subgroups(table,n):
+    print('Все нормальные подгруппы S_{l}:'.format(l=n))
     narr=[]
     for i in range(1,math.factorial(n)+1):
         if math.factorial(n)%i==0:
@@ -62,7 +63,7 @@ def subgroups(table,n):
         resarr=[]
         resarr.append(gr)
         po = 1
-        while gr!='123' and po<=math.factorial(n):
+        while gr!=table.index[0] and po<=math.factorial(n):
             gr=mul(table,gr,gr)
             resarr.append(gr)
             po+=1
@@ -75,7 +76,9 @@ def subgroups(table,n):
                     rightarr.append(mul(table,j,table.index[t]))
                     leftarr.append(mul(table,table.index[t],j))
                 if rightarr==leftarr:
-                    print(resarr)
+                    for u in resarr:
+                        print('({l}'.format(l=u),end='),')
+                    print()
                     break
                 rightarr.clear()
                 leftarr.clear()
@@ -86,9 +89,9 @@ def subgroups(table,n):
 
 
 #ввод
-#print(n=)
-#n=int(input())
-n=3
+print(end='n=')
+n=int(input())
+#n=5
 
 #начало проги
 elems=get_group_elements(n)
